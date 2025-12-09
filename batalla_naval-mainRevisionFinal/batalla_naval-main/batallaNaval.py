@@ -191,23 +191,19 @@ def indice_del_minimo_entre(lista:list[int], inicio:int) -> int:
     return índiceDelMínimoPorAhora  
 
 
-def intercambiar(lista:list[int], i:int, j:int) -> list[int]:
-    
+def intercambiar_dos_elementos(lista: list[int], i: int, j: int) -> None:
     """
-    Intercambia el orden de dos elementos de una lista, para ordenarlos de menor a mayor.
+    Intercambia los elementos que se encuentran en las posiciones i y j.
 
-    PRE: True
+    PRE: 0 <= i < len(lista) and 0 <= j < len(lista)
     Args: 
-        lista (list[int]): La lista de enteros a ordenar.
-        i (int) : Indice de uno de los elementos a ordenar
-        j (int) : Indice del otr elemento a ordenar
+        lista (list[int]): La lista donde se hará el cambio.
+        i (int) : Índice del primer elemento.
+        j (int) : Índice del segundo elemento.
     Returns: 
-        list[int]: Una nueva lista con los elementos ordenados.
-    
+        None: Modifica la lista in-situ (no devuelve nada).
     """
     lista[i], lista[j] = lista[j], lista[i]
-
-    return lista
 
 
 def listaOrdenada(lista:list[int]) -> list[int]:
@@ -229,7 +225,7 @@ def listaOrdenada(lista:list[int]) -> list[int]:
 
         indice_minimo = indice_del_minimo_entre(lista_ordenada, i)
         
-        intercambiar(lista_ordenada, i, indice_minimo)
+        intercambiar_dos_elementos(lista_ordenada, i, indice_minimo)
         
     return lista_ordenada
 
