@@ -171,7 +171,7 @@ def grilla_valida_en_juego(grilla: Grilla, dimension: tuple[int, int]) -> bool:
 # HASTA ACA FUNCIONA EL CODIGO
 
 
-def indice_del_minimo(lista:list[int], inicio:int) -> int:
+def indice_del_minimo_entre(lista:list[int], inicio:int) -> int:
     
     """
     Busca el indice del numero más chico de la lista
@@ -184,11 +184,11 @@ def indice_del_minimo(lista:list[int], inicio:int) -> int:
         int: El indice del menor número de la lista
    
     """
-    indice_minimo = inicio
+    índiceDelMínimoPorAhora = inicio
     for j in range(inicio + 1, len(lista)):
-        if lista[j] < lista[indice_minimo]:
-            indice_minimo = j
-    return indice_minimo
+        if lista[j] < lista[índiceDelMínimoPorAhora]:
+            índiceDelMínimoPorAhora = j
+    return índiceDelMínimoPorAhora  
 
 
 def intercambiar(lista:list[int], i:int, j:int) -> list[int]:
@@ -227,7 +227,7 @@ def listaOrdenada(lista:list[int]) -> list[int]:
 
     for i in range(n):
 
-        indice_minimo = indice_del_minimo(lista_ordenada, i)
+        indice_minimo = indice_del_minimo_entre(lista_ordenada, i)
         
         intercambiar(lista_ordenada, i, indice_minimo)
         

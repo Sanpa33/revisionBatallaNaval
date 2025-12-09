@@ -448,7 +448,7 @@ class FuncionesAuxiliares_Test(unittest.TestCase):
 
         lista = [10, 2, 5] 
         
-        resultado = indice_del_minimo(lista, 0)
+        resultado = indice_del_minimo_entre(lista, 0)
         self.assertEqual(resultado, 1)
 
     def test_auxiliar_vertical_invalido_por_cambio_de_numero(self):
