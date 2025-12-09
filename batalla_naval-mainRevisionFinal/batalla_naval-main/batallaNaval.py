@@ -168,6 +168,8 @@ def grilla_valida_en_juego(grilla: Grilla, dimension: tuple[int, int]) -> bool:
 
     return (len(grilla), len(grilla[0])) == dimension
 
+# HASTA ACA FUNCIONA EL CODIGO
+
 
 def indice_del_minimo(lista:list[int], inicio:int) -> int:
     
