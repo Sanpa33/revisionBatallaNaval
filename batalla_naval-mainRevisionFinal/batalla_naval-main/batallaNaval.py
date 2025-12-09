@@ -246,34 +246,35 @@ def tamaño_barco_encontrado(grilla: Grilla, visitados: list[list[bool]], posici
         int: El tamaño del barco que se encontré
     """
 
-    filas_totales = len(grilla)
-    columnas_totales = len(grilla[0])
-    tamaño = 1
+    if len(grilla) == 0:
+        return 0
+    
+    tamañoPorAhora = 1
     visitados[posicion_fila][posicion_columna] = True
 
     # barco horizontal: 
-    if posicion_columna + 1 < columnas_totales and grilla[posicion_fila][posicion_columna + 1] == BARCO:
+    if posicion_columna + 1 < len(grilla[0]) and grilla[posicion_fila][posicion_columna + 1] == BARCO:
 
-        k = posicion_columna + 1
+        posicion_adyascente = posicion_columna + 1
 
-        while k < columnas_totales and grilla[posicion_fila][k] == BARCO:
+        while posicion_adyascente < len(grilla[0]) and grilla[posicion_fila][posicion_adyascente] == BARCO:
 
-            visitados[posicion_fila][k] = True
-            tamaño += 1
-            k += 1
+            visitados[posicion_fila][posicion_adyascente] = True
+            tamañoPorAhora += 1
+            posicion_adyascente += 1
             
     # barco vertical:
-    elif posicion_fila + 1 < filas_totales and grilla[posicion_fila + 1][posicion_columna] == BARCO:
+    elif posicion_fila + 1 < len(grilla) and grilla[posicion_fila + 1][posicion_columna] == BARCO:
 
-        k = posicion_fila + 1
+        posicion_adyascente = posicion_fila + 1
 
-        while k < filas_totales and grilla[k][posicion_columna] == BARCO:
+        while posicion_adyascente < len(grilla) and grilla[posicion_adyascente][posicion_columna] == BARCO:
 
-            visitados[k][posicion_columna] = True
-            tamaño += 1
-            k += 1
+            visitados[posicion_adyascente][posicion_columna] = True
+            tamañoPorAhora += 1
+            posicion_adyascente += 1
 
-    return tamaño
+    return tamañoPorAhora
 
 
 def obtener_barcos_en_grilla(grilla: Grilla) -> list[Barco]:
